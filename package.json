@@ -12,6 +12,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "axios": "^1.6.7",
+    "dompurify": "^3.0.8",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",
     "prop-types": "^15.8.1",

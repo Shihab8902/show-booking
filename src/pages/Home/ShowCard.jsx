@@ -3,12 +3,15 @@ import noImagePlaceholder from '../../assets/noImagePlaceholder.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const ShowCard = ({ data }) => {
     const { show } = data;
     const { name, image, rating, runtime, language } = show;
+
+    const navigate = useNavigate();
 
 
     //Initialize aos
@@ -18,7 +21,7 @@ const ShowCard = ({ data }) => {
         });
     }, [])
 
-    return <div className='border-2 ' data-aos="fade-up">
+    return <div onClick={() => navigate(`/summary/${show.id}`, { state: data })} className='border-2 ' data-aos="fade-up">
 
         <div className='overflow-hidden'>
             <img className='w-full h-[400px]  block hover:scale-105 transition-all duration-300' src={image?.medium || image?.original || noImagePlaceholder} alt={name} />
